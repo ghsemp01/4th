@@ -45,7 +45,7 @@
   }
    .vcenterme{
     text-align:   center; 
-     margin-top: 30vh;
+     margin-top: 20vh;
    }  
     </style>
   </head>
@@ -63,7 +63,7 @@
       <div class="vcenterme">
          <img class="responsive-img" src="cake.jpg" style='height:120px;'>
           <h3>The unxpected visit.</h3>
-
+          <button class='btn' id='btn1'>Next</button>
       </div>
 </div>
 
@@ -80,6 +80,7 @@
   <div class="vcenterme">
   <img class="responsive-img" src="ukelele.jpg" style='height:120px;'>
           <h3>Your wish came true.</h3>
+            <button class='btn' id='btn2'>Next</button>
       </div>
 </div>
 
@@ -96,6 +97,7 @@
       <div class="vcenterme" class="block">
       <img class="responsive-img" src="poem.jpg" style='height:120px;'>
           <h3>Poem just for you..</h3>
+            <button class='btn' id='btn3'>Next</button>
       </div>
 </div>
 
@@ -115,6 +117,9 @@
           <button id='btnshow'class='btn btn-pink'>Show me baby</button>
            
       </div>
+</div>
+<div>
+  <br><br><br><br>
 </div>
 
 
@@ -147,11 +152,23 @@
   $(function(){
 
 
-    // Pushpin Demo Init
    
+    $('#btn1').click(function(){
+        $('html, body').animate({
+        scrollTop: $("#red").offset().top
+      }, 500);
+    });
 
-
-
+ $('#btn2').click(function(){
+        $('html, body').animate({
+        scrollTop: $("#green").offset().top
+      }, 500);
+    });
+  $('#btn3').click(function(){
+        $('html, body').animate({
+        scrollTop: $("#grey").offset().top
+      }, 500);
+    });
 
   }); // end of document ready
 })(jQuery); // end of jQuery name space
