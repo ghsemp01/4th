@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <title>Pushpin Demo - Materialize</title>
+    <!-- Favicons-->
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
+    <!-- CSS-->
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+
+
+          
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      html, body, .block {
+        height: 100%;
+      }
+ 
+	    // Class for when element is above threshold
+  .pin-top {
+    position: relative;
+  }
+
+  // Class for when element is below threshold
+  .pin-bottom {
+    position: relative;
+  }
+
+  // Class for when element is pinned
+  .pinned {
+    position: fixed !important;
+  }
+   .vcenterme{
+    text-align:   center; 
+    
+   }  
+    </style>
+  </head>
+  <body>
+  <div id="blue" class="block">
+  <nav class="pushpin-demo-nav" data-target="blue">
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="#" class="brand-logo">1st Month</a>
+         
+      </div>
+    </div>
+      
+    </nav>
+      <div class="vcenterme">
+         <img class="responsive-img" src="cake.jpg" style='height:120px;'>
+          <h3>The unxpected visit.</h3>
+
+      </div>
+</div>
+
+<div id="red" class="block">
+  <nav class="pushpin-demo-nav" data-target="red">
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="#" class="brand-logo">2nd Month</a>
+    
+      </div>
+    </div>
+    
+  </nav>
+  <div class="vcenterme">
+  <img class="responsive-img" src="ukelele.jpg" style='height:120px;'>
+          <h3>Your wish came true.</h3>
+      </div>
+</div>
+
+<div id="green" class="block">
+  <nav class="pushpin-demo-nav" data-target="green">
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="#" class="brand-logo">3rd Month</a>
+     
+      </div>
+    </div>
+  
+  </nav>
+      <div class="vcenterme" class="block">
+      <img class="responsive-img" src="poem.jpg" style='height:120px;'>
+          <h3>Poem just for you..</h3>
+      </div>
+</div>
+
+<div id="grey" class="block">
+  <nav class="pushpin-demo-nav" data-target="grey">
+    <div class="nav-wrapper">
+      <div class="container">
+        <a href="#" class="brand-logo">4th month</a>
+       
+      </div>
+    </div>
+     
+  </nav>
+    <div class="vcenterme">
+        <img class="responsive-img" id='imgring' src="ring.jpg" style='height:120px;display:none;'>
+          <h3 id='changeme'>Today? Your expecting a?</h3>
+          <button id='btnshow'class='btn btn-pink'>Show me baby</button>
+           
+      </div>
+</div>
+
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>if (!window.jQuery) { document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>'); }
+    </script>
+   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+(function($){
+
+  $('#btnshow').click(function(){
+    $('#imgring').fadeIn(3000);
+    $('#btnshow').hide();
+    $('#changeme').html("")
+    setTimeout(function(){
+        $('#changeme').html("Will you marry...")
+        setTimeout(function(){
+             $('#changeme').html("Oppps. Marry... Merry Christmas. LOL ")
+              setTimeout(function(){
+               $('#changeme').html("Happy 4th! I love you so much...");
+             
+        },4000);
+        },4000);
+    },4000);
+  });
+
+  $(function(){
+
+
+    // Pushpin Demo Init
+    setTimeout(function(){
+  if ($('.pushpin-demo-nav').length) {
+      $('.pushpin-demo-nav').each(function() {
+        var $this = $(this);
+        var $target = $('#' + $(this).attr('data-target'));
+        $this.pushpin({
+          top: $target.offset().top,
+          bottom: $target.offset().top + $target.outerHeight() - $this.height()
+        });
+      });
+    }
+    },1000);
+  
+
+
+
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+</script>
+  
+
+  </body>
+</html>
